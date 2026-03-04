@@ -1,4 +1,4 @@
-import { PiggyBank, Sun, Moon } from "lucide-react";
+import { PiggyBank } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface HeaderProps {
@@ -30,9 +30,7 @@ const Header = ({ isDarkMode, onToggleTheme }: HeaderProps) => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground drop-shadow-md">
           Gestão de Valores
         </h1>
-        <div className="ml-2 p-2 rounded-full bg-primary-foreground/20 text-primary-foreground">
-          {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-        </div>
+        
       </div>
     </motion.header>
   );
