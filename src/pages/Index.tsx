@@ -38,15 +38,24 @@ const Index = () => {
   const [modalDetalhes, setModalDetalhes] = useState({
     aberto: false, tipo: '', titulo: '', dados: [] as any[],
   });
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('gestao-valores-theme');
+    return saved ? saved === 'dark' : true;
+  });
 
   useEffect(() => {
     localStorage.setItem('gestao-valores-data', JSON.stringify(pagamentos));
   }, [pagamentos]);
 
-  // Force dark mode
   useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    localStorage.setItem('gestao-valores-theme', isDarkMode ? 'dark' : 'light');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDarkMode ? '#020617' : '#f8fafc');
+  }, [isDarkMode]);
 
   const getSaldo = (nome: string) => VALOR_TOTAL - (pagamentos[nome]?.length || 0) * ABATIMENTO;
   const getValorPago = (nome: string) => (pagamentos[nome]?.length || 0) * ABATIMENTO;
@@ -124,7 +133,7 @@ const Index = () => {
       <div className="fixed top-0 left-0 w-full h-[500px] pointer-events-none bg-gradient-to-b from-primary/5 to-transparent" />
 
       <div className="w-full max-w-4xl px-4 py-6 md:p-8 space-y-6 z-10">
-        <Header />
+        <Header isDarkMode={isDarkMode} onToggleTheme={() => setIsDarkMode(prev => !prev)} />
         <SummaryCards totalArrecadado={totalArrecadado} totalDevedor={totalDevedor} />
 
         {todosQuitados && (
