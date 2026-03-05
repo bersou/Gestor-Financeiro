@@ -26,7 +26,13 @@ const TOTAL_PARCELAS = VALOR_TOTAL / ABATIMENTO;
 const Index = () => {
   const [pagamentos, setPagamentos] = useState<PagamentosMap>(() => {
     const saved = localStorage.getItem('gestao-valores-data');
-    return saved ? JSON.parse(saved) : { Carmelita: [], 'Cláudio': [], 'Cecília': [], 'Valmor': [] };
+    const parsed = saved ? JSON.parse(saved) : {};
+    // Garantir que todos os participantes existam no estado
+    const result: PagamentosMap = {};
+    PARTICIPANTES.forEach((nome) => {
+      result[nome] = parsed[nome] || [];
+    });
+    return result;
   });
 
   const [modalOpen, setModalOpen] = useState(false);
