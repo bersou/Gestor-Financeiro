@@ -120,3 +120,36 @@
 
 .coin-drop { animation: coinDrop 5s infinite ease-in; }
 .piggy-wiggle { animation: piggyWiggle 5s infinite; transform-origin: center; }
+
+/* Avatar animations */
+@keyframes blink {
+  0%, 42%, 44%, 100% { transform: scaleY(1); }
+  43% { transform: scaleY(0.05); }
+}
+@keyframes blink-delayed {
+  0%, 62%, 64%, 100% { transform: scaleY(1); }
+  63% { transform: scaleY(0.05); }
+}
+@keyframes mouth-move {
+  0%, 70%, 78%, 100% { transform: scaleY(1) translateY(0); }
+  73% { transform: scaleY(1.4) translateY(-1px); }
+  76% { transform: scaleY(0.7) translateY(1px); }
+}
+@keyframes look-around {
+  0%, 40%, 50%, 100% { transform: translateX(0); }
+  44% { transform: translateX(1.5px); }
+  47% { transform: translateX(-1.5px); }
+}
+
+.avatar-eye { 
+  animation: blink 4s infinite ease-in-out, look-around 6s infinite ease-in-out; 
+  transform-origin: center;
+}
+.avatar-eye-delayed { 
+  animation: blink-delayed 4s infinite ease-in-out, look-around 6s infinite ease-in-out; 
+  transform-origin: center;
+}
+.avatar-mouth { 
+  animation: mouth-move 5s infinite ease-in-out; 
+  transform-origin: center;
+}
