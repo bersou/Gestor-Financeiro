@@ -33,7 +33,7 @@ const Index = () => {
   const [usuarioSelecionado, setUsuarioSelecionado] = useState('');
   const [dataSelecionada, setDataSelecionada] = useState(new Date().toISOString().split('T')[0]);
   const [historicoAberto, setHistoricoAberto] = useState<Record<string, boolean>>({
-    Carmelita: false, 'Cláudio': false, 'Cecília': false,
+    Carmelita: false, 'Cláudio': false, 'Cecília': false, 'Valmor': false,
   });
   const [modalDetalhes, setModalDetalhes] = useState({
     aberto: false, tipo: '', titulo: '', dados: [] as any[],
