@@ -73,6 +73,28 @@ const avatars: Record<string, () => JSX.Element> = {
       <path d="M 44 66 Q 50 72 56 66" fill="none" stroke="#78350f" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   ),
+  "Valmor": () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <radialGradient id="skin-valmor" cx="45%" cy="35%" r="60%">
+          <stop offset="0%" stopColor="#fde8d0" />
+          <stop offset="100%" stopColor="#d4a373" />
+        </radialGradient>
+        <linearGradient id="hair-valmor" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#6b7280" />
+          <stop offset="100%" stopColor="#374151" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="52" r="34" fill="url(#skin-valmor)" />
+      <path d="M 16 45 Q 30 10 50 12 Q 70 10 84 45 Q 75 22 50 24 Q 25 22 16 45 Z" fill="url(#hair-valmor)" />
+      <circle cx="38" cy="48" r="4.5" fill="#1e293b" />
+      <circle cx="62" cy="48" r="4.5" fill="#1e293b" />
+      <path d="M 32 40 Q 38 37 44 40" fill="none" stroke="#374151" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M 56 40 Q 62 37 68 40" fill="none" stroke="#374151" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M 35 68 Q 50 60 65 68" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
+      <path d="M 44 66 Q 50 72 56 66" fill="none" stroke="#92400e" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  ),
 };
 
 export const getAvatar = (name: string) => {

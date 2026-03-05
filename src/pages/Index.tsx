@@ -18,7 +18,7 @@ interface Pagamento {
 
 type PagamentosMap = Record<string, Pagamento[]>;
 
-const PARTICIPANTES = ['Carmelita', 'Cláudio', 'Cecília'];
+const PARTICIPANTES = ['Carmelita', 'Cláudio', 'Cecília', 'Valmor'];
 const VALOR_TOTAL = 600;
 const ABATIMENTO = 100;
 const TOTAL_PARCELAS = VALOR_TOTAL / ABATIMENTO;
@@ -26,14 +26,14 @@ const TOTAL_PARCELAS = VALOR_TOTAL / ABATIMENTO;
 const Index = () => {
   const [pagamentos, setPagamentos] = useState<PagamentosMap>(() => {
     const saved = localStorage.getItem('gestao-valores-data');
-    return saved ? JSON.parse(saved) : { Carmelita: [], 'Cláudio': [], 'Cecília': [] };
+    return saved ? JSON.parse(saved) : { Carmelita: [], 'Cláudio': [], 'Cecília': [], 'Valmor': [] };
   });
 
   const [modalOpen, setModalOpen] = useState(false);
   const [usuarioSelecionado, setUsuarioSelecionado] = useState('');
   const [dataSelecionada, setDataSelecionada] = useState(new Date().toISOString().split('T')[0]);
   const [historicoAberto, setHistoricoAberto] = useState<Record<string, boolean>>({
-    Carmelita: false, 'Cláudio': false, 'Cecília': false,
+    Carmelita: false, 'Cláudio': false, 'Cecília': false, 'Valmor': false,
   });
   const [modalDetalhes, setModalDetalhes] = useState({
     aberto: false, tipo: '', titulo: '', dados: [] as any[],
@@ -61,7 +61,7 @@ const Index = () => {
   const getValorPago = (nome: string) => (pagamentos[nome]?.length || 0) * ABATIMENTO;
 
   const totalArrecadado = Object.values(pagamentos).reduce((acc, curr) => acc + curr.length * ABATIMENTO, 0);
-  const totalMetaGlobal = VALOR_TOTAL * 3;
+  const totalMetaGlobal = VALOR_TOTAL * PARTICIPANTES.length;
   const totalDevedor = totalMetaGlobal - totalArrecadado;
   const porcentagemPagaGeral = (totalArrecadado / totalMetaGlobal) * 100;
   const todosQuitados = totalArrecadado === totalMetaGlobal && totalMetaGlobal > 0;
