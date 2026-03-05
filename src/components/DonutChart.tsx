@@ -20,8 +20,8 @@ const DonutChart = ({ porcentagem, onClick }: DonutChartProps) => {
       className="glass-card rounded-3xl p-6 md:p-8 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center"
     >
       <h3 className="w-full text-lg font-bold mb-6 flex items-center gap-3 text-foreground">
-        <div className="p-2 rounded-xl bg-primary/10">
-          <PieChart className="w-5 h-5 text-primary" />
+        <div className="p-3 rounded-xl bg-primary/10">
+          <PieChart className="w-7 h-7 text-primary" />
         </div>
         Resumo Geral
       </h3>

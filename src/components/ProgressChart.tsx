@@ -21,8 +21,8 @@ const ProgressChart = ({ participantes, getValorPago, valorTotal, onClickPessoa 
     >
       <div className="flex items-center justify-between mb-8">
         <h3 className="text-lg font-bold flex items-center gap-3 text-foreground">
-          <div className="p-2 rounded-xl bg-accent/10">
-            <TrendingUp className="w-5 h-5 text-accent" />
+          <div className="p-3 rounded-xl bg-accent/10">
+            <TrendingUp className="w-7 h-7 text-accent" />
           </div>
           Progresso
         </h3>

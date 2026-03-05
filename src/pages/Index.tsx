@@ -61,7 +61,7 @@ const Index = () => {
   const getValorPago = (nome: string) => (pagamentos[nome]?.length || 0) * ABATIMENTO;
 
   const totalArrecadado = Object.values(pagamentos).reduce((acc, curr) => acc + curr.length * ABATIMENTO, 0);
-  const totalMetaGlobal = VALOR_TOTAL * 3;
+  const totalMetaGlobal = VALOR_TOTAL * PARTICIPANTES.length;
   const totalDevedor = totalMetaGlobal - totalArrecadado;
   const porcentagemPagaGeral = (totalArrecadado / totalMetaGlobal) * 100;
   const todosQuitados = totalArrecadado === totalMetaGlobal && totalMetaGlobal > 0;
