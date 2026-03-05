@@ -18,7 +18,7 @@ interface Pagamento {
 
 type PagamentosMap = Record<string, Pagamento[]>;
 
-const PARTICIPANTES = ['Carmelita', 'Cláudio', 'Cecília'];
+const PARTICIPANTES = ['Carmelita', 'Cláudio', 'Cecília', 'Valmor'];
 const VALOR_TOTAL = 600;
 const ABATIMENTO = 100;
 const TOTAL_PARCELAS = VALOR_TOTAL / ABATIMENTO;
